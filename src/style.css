@@ -1,0 +1,24 @@
+@font-face {
+    font-family: robotoMono;
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(public/robotoMono.ttf) format("truetype")
+}
+
+.word {
+    display: inline-block;
+    margin: 8px;
+}
+
+.letter {
+    display: inline-block;
+    font-family: "robotoMono";
+    font-size: 32px;
+    line-height: 32px;
+}
+
+#inputReader {
+    opacity: 0;
+    position: absolute;
+}
