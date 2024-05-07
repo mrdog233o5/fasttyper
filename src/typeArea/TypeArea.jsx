@@ -1,3 +1,4 @@
+import Context from "../context";
 import Word from "/src/typeArea/word.jsx";
 
 function TypeArea() {
@@ -7,9 +8,14 @@ function TypeArea() {
         <Word key={index} text={word} />
     );
     return (
-        <>
+        <div>
             {words}
-        </>
+            <Context.Consumer>
+                {({ userInput, setUserInput }) => (
+                    <h1>{userInput}</h1>
+                )}
+            </Context.Consumer>
+        </div>
     );
 }
 
