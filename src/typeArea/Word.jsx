@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Letter from "/src/typeArea/Letter.jsx";
+import Letter from "/src/typeArea/letter.jsx";
 
 function Word({ text }) {
     var letters = Array.from(text).map(

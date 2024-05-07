@@ -1,10 +1,12 @@
-import { useState } from 'react'
-import TypeArea from './typeArea/TypeArea.jsx'
+import TypeArea from './typeArea/typeArea.jsx'
+import InputReader from './inputReader.jsx'
 
 function App() {
     return (
         <>
             <TypeArea />
+            <br /> 
+            <InputReader />
         </>
     )
 }

@@ -1,7 +1,6 @@
-import Word from "/src/typeArea/Word.jsx";
+import Word from "/src/typeArea/word.jsx";
 
 function TypeArea() {
-
     var text = "Hello world"
     var words = text.split(" ").map(
         (word, index) => 
