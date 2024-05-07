@@ -11,7 +11,7 @@ function TypeArea() {
         <div>
             {words}
             <Context.Consumer>
-                {({ userInput, setUserInput }) => (
+                {({ userInput}) => (
                     <h1>{userInput}</h1>
                 )}
             </Context.Consumer>

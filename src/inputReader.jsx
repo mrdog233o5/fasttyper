@@ -15,11 +15,10 @@ function InputReader() {
     return (
         <>
             <Context.Consumer>
-                {({ userInput, setUserInput }) => (
+                {({ setUserInput }) => (
                     <form autoComplete="off" autoCapitalize="off" autoCorrect="off" id="inputReader">
                         <input ref={inputReaderRef} type="text" onBlur={focusInput} onInput={() => {
                             setUserInput(inputReaderRef.current.value);
-                            console.log(userInput);
                         }} />
                     </form>
                 )}
