@@ -9,7 +9,6 @@ function Word({ text, input, next }) {
     var maxLength = Math.max(input.length, text.length)
     const ref = (el) => {
         if (next && context.userInput[context.userInput.length - 1] == " " && el != null) {
-            console.log("idk");
             context.setLastLetterX(el.getBoundingClientRect().left);
             context.setLastLetterY(el.getBoundingClientRect().top - 8);
         }

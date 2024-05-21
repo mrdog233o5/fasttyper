@@ -11,6 +11,12 @@
     src: url(/robotoMono.ttf) format("truetype")
 }
 
+#typearea {
+    height: 192px;
+    width: 100vw;
+    overflow: hidden;
+}
+
 .word {
     display: inline-block;
     margin: 8px;

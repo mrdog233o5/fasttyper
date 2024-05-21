@@ -1,22 +1,40 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../App";
 import Cursor from "../cursor.jsx";
-import Word from "/src/typeArea/word.jsx"; 
+import Word from "/src/typeArea/word.jsx";
 
 function TypeArea() {
     const context = useContext(Context);
-    var userInput = context.userInput;
-    var userInputArr = userInput.split(" ");
-    var text = "Hello world apple banana pear potato";
-    var textArr = text.split(" ");
-    console.log(userInputArr);
-    var words = textArr.map(
-        (word, index) => 
-        <Word key={index} text={word} next={userInputArr[index] == "" && userInputArr[index - 1] != undefined} input={index < userInputArr.length ? userInputArr[index] : ""} />
-    )
-    
+    const [words, setWords] = useState([]);
+    const userInput = context.userInput;
+    const userInputArr = userInput.split(" ");
+
+    useEffect(() => {
+        const fetchWords = async () => {
+            try {
+                const res = await fetch('/wordlist.txt');
+                const wordlist = await res.text();
+                const wordArray = wordlist.split('\n');
+                setWords(
+                    wordArray.map((word, index) => (
+                        <Word
+                        key={index}
+                        text={word}
+                        next={index < userInputArr.length && userInputArr[index] === ''}
+                        input={index < userInputArr.length ? userInputArr[index] : ''}
+                        />
+                    ))
+                );
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchWords();
+    }, [userInputArr]);
+
     return (
-        <div>
+        <div id="typearea">
             <Cursor />
             {words}
         </div>
