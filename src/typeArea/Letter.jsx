@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { Context } from "../App";
+import { Context } from "/src/App.jsx";
 import PropTypes from 'prop-types';
 
 function Letter({ letter, classes }) {
     const context = useContext(Context);
     const ref = (el) => {
         if (context.userInput == "") {
-            context.setLastLetterX(0);
-            context.setLastLetterY(0);
+            context.setLastLetterX(context.typeareaX);
+            context.setLastLetterY(context.typeareaY);
         }
         if (classes.split(" ").includes("filled") && el != null) {
             context.setLastLetterX(el.getBoundingClientRect().right);

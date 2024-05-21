@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { Context } from "../App";
+import { Context } from "/src/App.jsx";
 import PropTypes from "prop-types";
-import Letter from "/src/typeArea/letter.jsx";
+import Letter from "/src/typearea/letter.jsx";
 
 function Word({ text, input, next }) {
     const context = useContext(Context);

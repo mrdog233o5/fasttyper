@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Context } from "./App";
+import { Context } from "/src/App.jsx";
 
 function InputReader() {
     const inputReaderRef = useRef();
@@ -16,19 +16,17 @@ function InputReader() {
         <>
             <Context.Consumer>
                 {({ setUserInput }) => (
-                    <form autoComplete="off" autoCapitalize="off" autoCorrect="off" id="inputReader">
-                        <input ref={inputReaderRef} type="text" onBlur={focusInput} onInput={() => {
+                    <input autoComplete="off" autoCapitalize="off" autoCorrect="off" id="inputReader" ref={inputReaderRef} type="text" onBlur={focusInput} onInput={() => {
 
-                            // remove multiple spaces
-                            if (
-                                inputReaderRef.current.value[inputReaderRef.current.value.length - 1] == " " &&
-                                inputReaderRef.current.value[inputReaderRef.current.value.length - 2] == " "
-                            ) inputReaderRef.current.value = inputReaderRef.current.value.substring(0, inputReaderRef.current.value.length - 1);
+                        // remove multiple spaces
+                        if (
+                            inputReaderRef.current.value[inputReaderRef.current.value.length - 1] == " " &&
+                            inputReaderRef.current.value[inputReaderRef.current.value.length - 2] == " "
+                        ) inputReaderRef.current.value = inputReaderRef.current.value.substring(0, inputReaderRef.current.value.length - 1);
 
-                            // update
-                            setUserInput(inputReaderRef.current.value);
-                        }} />
-                    </form>
+                        // update
+                        setUserInput(inputReaderRef.current.value);
+                    }} />
                 )}
             </Context.Consumer>
         </>

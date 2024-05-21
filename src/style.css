@@ -8,13 +8,23 @@
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(/robotoMono.ttf) format("truetype")
+    src: url(/robotoMono.ttf) format("truetype");
+}
+
+#typer {
+    top: 50vh;
+    transform: translateY(-50%);
+    position: relative;
+    height: 144px;
+    width: 100vw;
 }
 
 #typearea {
-    height: 192px;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .word {
@@ -46,6 +56,7 @@
 
 #cursor {
     position: absolute;
+    width: 0;
     height: 48px;
     border-left: black 4px solid;
     border-radius: 100em;
