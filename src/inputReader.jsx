@@ -31,7 +31,6 @@ function InputReader() {
 
                         // update
                         setUserInput(inputReaderRef.current.value);
-                        console.log(inputReaderRef.current.value);
                     }} />
                 )}
             </Context.Consumer>
