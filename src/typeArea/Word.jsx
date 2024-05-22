@@ -7,11 +7,17 @@ function Word({ text, input, next }) {
     const context = useContext(Context);
     var letters = [];
     var maxLength = Math.max(input.length, text.length)
-    const ref = (el) => {
-        if (next && context.userInput[context.userInput.length - 1] == " " && el != null) {
-            context.setLastLetterX(el.getBoundingClientRect().left);
-            context.setLastLetterY(el.getBoundingClientRect().top - 8);
+    const ref = (wordEl) => {
+        if (wordEl == null) return;
+        if (next && context.userInput[context.userInput.length - 1] == " ") {
+            context.setLastLetterX(wordEl.getBoundingClientRect().left);
+            context.setLastLetterY(wordEl.getBoundingClientRect().top - 8);
         }
+        if (context.lastLetterY - context.typeareaY >= 95 && wordEl.getBoundingClientRect().top - 8 - context.typeareaY <= 1) {
+            console.log(wordEl);
+            wordEl.removeChild(wordEl);
+        };
+        
     }
     for (let i = 0; i < maxLength; i++) {
         let classes = "";
