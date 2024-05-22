@@ -27,7 +27,7 @@ function InputReader() {
                             )
                         ) inputReaderRef.current.value = userInput;
 
-                        if (inputReaderRef.current.value.split(" ").length <= wordToStartFrom) inputReaderRef.current.value = userInput;
+                        if (inputReaderRef.current.value.split(" ").length == wordToStartFrom) inputReaderRef.current.value = userInput;
 
                         // update
                         setUserInput(inputReaderRef.current.value);
