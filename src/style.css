@@ -13,10 +13,11 @@
 
 #typer {
     top: 50vh;
-    transform: translateY(-50%);
+    left: 50vw;
+    transform: translate(-50%, -50%);
     position: relative;
     height: 144px;
-    width: 100vw;
+    width: 70vw;
 }
 
 #typearea {

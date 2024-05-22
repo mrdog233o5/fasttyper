@@ -7,7 +7,6 @@ function Cursor() {
     var y = context.lastLetterY;
     var typeareaX = context.typeareaX;
     var typeareaY = context.typeareaY;
-    console.log(typeareaX, typeareaY);
     var styles = {
         transform: `translate(${x - typeareaX}px, ${y - typeareaY}px)`
     };
