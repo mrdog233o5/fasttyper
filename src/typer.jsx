@@ -1,4 +1,4 @@
-import Typearea from "/src/typearea/typearea.jsx";
+import Typearea from "./typearea/typearea";
 import Cursor from "/src/cursor.jsx";
 
 function Typer() {
