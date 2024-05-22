@@ -21,7 +21,10 @@ function InputReader() {
                         // remove multiple spaces
                         if (
                             inputReaderRef.current.value[inputReaderRef.current.value.length - 1] == " " &&
-                            inputReaderRef.current.value[inputReaderRef.current.value.length - 2] == " "
+                            (
+                                inputReaderRef.current.value.length == 1 ||
+                                inputReaderRef.current.value[inputReaderRef.current.value.length - 2] == " "
+                            )
                         ) inputReaderRef.current.value = inputReaderRef.current.value.substring(0, inputReaderRef.current.value.length - 1);
 
                         // update
