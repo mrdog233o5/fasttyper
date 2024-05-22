@@ -9,6 +9,7 @@ function Typearea() {
     const [wordsArr, setWordsArr] = useState([]);
     const userInput = context.userInput;
     const userInputArr = userInput.split(" ");
+    context.setLineCleared(false);
     const ref = (el) => {
         if (el != null) {
             // set pos
@@ -42,9 +43,9 @@ function Typearea() {
     }, []);
 
     var words = [];
-    for (let i = 0; i < Math.min(WORDSTODISPLAY, wordsArr.length); i++) {
+    for (let i = context.wordToStartFrom; i < Math.min(WORDSTODISPLAY + context.wordToStartFrom, wordsArr.length); i++) {
         words.push(
-            <Word key={i} text={wordsArr[i]} next={i < userInputArr.length && userInputArr[i] === ''} input={i < userInputArr.length ? userInputArr[i] : ''} />
+            <Word key={i} index={i} text={wordsArr[i]} next={i < userInputArr.length && userInputArr[i] === ''} input={i < userInputArr.length ? userInputArr[i] : ''} />
         );
     }
 

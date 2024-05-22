@@ -3,7 +3,7 @@ import { Context } from "/src/App.jsx";
 import PropTypes from "prop-types";
 import Letter from "/src/typearea/letter.jsx";
 
-function Word({ text, input, next }) {
+function Word({ text, input, next, index }) {
     const context = useContext(Context);
     var letters = [];
     var maxLength = Math.max(input.length, text.length)
@@ -13,9 +13,15 @@ function Word({ text, input, next }) {
             context.setLastLetterX(wordEl.getBoundingClientRect().left);
             context.setLastLetterY(wordEl.getBoundingClientRect().top - 8);
         }
-        if (context.lastLetterY - context.typeareaY >= 95 && wordEl.getBoundingClientRect().top - 8 - context.typeareaY <= 1) {
-            console.log(wordEl);
-            wordEl.removeChild(wordEl);
+        if (
+            context.lastLetterY - context.typeareaY >= 95 &&
+            wordEl.getBoundingClientRect().top - 8 - context.typeareaY <= 1 &&
+            wordEl.getBoundingClientRect().top - 8 - context.typeareaY >= -1 &&
+            context.lineCleared == false
+        ) {
+            context.setWordToStartFrom(index+1);
+            context.setLastLetterY(0)
+            context.setLineCleared(true);
         };
         
     }
@@ -40,7 +46,8 @@ function Word({ text, input, next }) {
 Word.propTypes = {
     text: PropTypes.string,
     input: PropTypes.string,
-    next: PropTypes.bool
+    next: PropTypes.bool,
+    index: PropTypes.number
 }
 
 export default Word;
