@@ -15,7 +15,7 @@ function InputReader() {
     return (
         <>
             <Context.Consumer>
-                {({ setUserInput }) => (
+                {({ userInput, setUserInput, wordToStartFrom }) => (
                     <input autoComplete="off" autoCapitalize="off" autoCorrect="off" id="inputReader" ref={inputReaderRef} type="text" onBlur={focusInput} onInput={() => {
 
                         // remove multiple spaces
@@ -25,10 +25,13 @@ function InputReader() {
                                 inputReaderRef.current.value.length == 1 ||
                                 inputReaderRef.current.value[inputReaderRef.current.value.length - 2] == " "
                             )
-                        ) inputReaderRef.current.value = inputReaderRef.current.value.substring(0, inputReaderRef.current.value.length - 1);
+                        ) inputReaderRef.current.value = userInput;
+
+                        if (inputReaderRef.current.value.split(" ").length == wordToStartFrom) inputReaderRef.current.value = userInput;
 
                         // update
                         setUserInput(inputReaderRef.current.value);
+                        console.log(inputReaderRef.current.value);
                     }} />
                 )}
             </Context.Consumer>

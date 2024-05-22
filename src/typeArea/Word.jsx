@@ -22,7 +22,7 @@ function Word({ text, input, next, index }) {
             context.setWordToStartFrom(index+1);
             context.setLastLetterY(0)
             context.setLineCleared(true);
-        };
+        }
         
     }
     for (let i = 0; i < maxLength; i++) {
