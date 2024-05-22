@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    background: #1B2028;
+}
+
 @font-face {
     font-family: robotoMono;
     font-style: normal;
@@ -38,15 +42,19 @@
     font-family: "robotoMono";
     font-size: 32px;
     line-height: 32px;
-    color: lightgray;
+    color: #4B5975;
 }
 
 .correct {
-    color: lightgreen
+    color: #CCCCB5
 }
 
 .incorrect {
-    color: red;
+    color: #B81B2C;
+}
+
+.extra {
+    color: #84131F;
 }
 
 
@@ -59,7 +67,7 @@
     position: absolute;
     width: 0;
     height: 48px;
-    border-left: black 4px solid;
+    border-left: #4B5975 4px solid;
     border-radius: 100em;
     transition: transform 0.1s ease;
 }
